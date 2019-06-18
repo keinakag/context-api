@@ -21,6 +21,7 @@ export class Demo extends React.Component {
 										<Link to={"/single/" + index}>
 											<span>Link to: {item.title}</span>
 										</Link>
+										<span>{item.background}</span>
 										<p style={{ color: item.initial }}>
 											{
 												"Check store/store.js scroll to the actions to see the code "
@@ -46,6 +47,17 @@ export class Demo extends React.Component {
 				<Link to="/">
 					<button className="btn btn-primary">Back home</button>
 				</Link>
+				<Context.Consumer>
+					{({ store, actions }) => {
+						return (
+							<button
+								className="btn btn-warning"
+								onClick={() => actions.resetColor("white")}>
+								reset
+							</button>
+						);
+					}}
+				</Context.Consumer>
 			</div>
 		);
 	}

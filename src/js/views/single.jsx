@@ -7,35 +7,25 @@ export class Single extends React.Component {
 	render() {
 		return (
 			<div className="jumbotron">
-				<Context.Consumer>
-					{({ store }) => {
-						return (
-							<h1 className="display-4">
-								This will show the demo element:{" "}
-								{
-									store.demo[this.props.match.params.theid]
-										.title
-								}
-							</h1>
-						);
-					}}
-				</Context.Consumer>
-
 				<hr className="my-4" />
 
-				<Link to="/">
+				<Link to="/demo">
 					<span
-						className="btn btn-primary btn-lg"
+						className="btn btn-success btn-lg"
 						href="#"
 						role="button">
-						Back home
+						Back to List
 					</span>
 				</Link>
+
+				<span className="btn btn-warning btn-lg" href="#" role="button">
+					Update
+				</span>
+
+				<span className="btn btn-danger btn-lg" href="#" role="button">
+					Delete
+				</span>
 			</div>
 		);
 	}
 }
-
-Single.propTypes = {
-	match: PropTypes.object
-};
